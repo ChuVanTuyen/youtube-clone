@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './components/Style/GlobalStyle.scss';
+import { Feed, Navbar, ChannelDetail, VideoDetail, SearchFeed } from './components';
+import { useState } from 'react';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const light = "App";
+  const dark = "App dark";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className={darkMode ? dark : light}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Routes>
+        <Route path="/" exact element={<Feed />} />
+        <Route path="/video/:id" element={<VideoDetail />} />
+        <Route path="/channel/:id" element={<ChannelDetail />} />
+        <Route path="/search/:searchTerm" element={<SearchFeed />} />
+      </Routes>
     </div>
   );
 }

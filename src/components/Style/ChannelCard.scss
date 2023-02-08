@@ -1,0 +1,27 @@
+.channel-card{
+    background-color: transparent;
+    img{
+        width: 55%;
+        margin: auto;
+        display: block;
+        border-radius: 50%;
+        max-width: 176px;
+        border: 1px solid #888;
+    }
+    h4{
+        text-align: center;
+        margin-top: 15px;
+        color: #333;
+    }
+}
+
+.dark {
+    .channel-card{
+        h4{
+            color: white;
+        }
+        p{
+            color: #888;
+        }
+    }
+}
